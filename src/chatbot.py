@@ -2,7 +2,7 @@
 
 __author__ = "Lichao Huang"
 __version__ = "1.0.0"
-
+# B404
 import subprocess
 
 ACCOUNTS = {
@@ -88,16 +88,16 @@ def get_task() -> str:
         raise ValueError("Unknown task")
 
 
-# 🔥 HIGH 漏洞（Bandit B602）
+# Bandit B602
 def dangerous():
     cmd = input("Enter command: ")
-    subprocess.call(cmd, shell=True)  # ⚠️ Command Injection
+    subprocess.call(cmd, shell=True)  # Injection
 
 
 if __name__ == "__main__":
     chatbot()
 
-    # 👉 触发 HIGH 漏洞（保证 Bandit 检测）
+    # Bandit B602
     dangerous()
 
     task = "none"
@@ -106,7 +106,7 @@ if __name__ == "__main__":
         try:
             task = get_task()
         except:
-            continue  # ⚠️ LOW 漏洞 B112
+            continue  # B112
 
         if task == "exit":
             print("Thank you for banking with PiXELL River Financial.")
